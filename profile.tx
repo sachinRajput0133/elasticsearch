@@ -1,0 +1,304 @@
+Statistical profiling result from isolate-0x315a4fe0-16807-v8.log, (315 ticks, 202 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     24    7.6%          /usr/lib/x86_64-linux-gnu/libc.so.6
+      1    0.3%          /usr/bin/node
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     11    3.5%    3.8%  JS: *slowSum /home/knovator/personal/testcases/src/controllers/demoController.js:7:17
+      1    0.3%    0.3%  JS: ^loadSource node:internal/modules/cjs/loader:1536:20
+      1    0.3%    0.3%  JS: ^getOptions node:internal/fs/utils:321:20
+      1    0.3%    0.3%  JS: ^get node:_http_incoming:109:16
+      1    0.3%    0.3%  JS: ^dirname node:path:1407:10
+      1    0.3%    0.3%  JS: ^<anonymous> node:internal/validators:161:40
+      1    0.3%    0.3%  JS: *resolve node:path:1217:10
+      1    0.3%    0.3%  JS: *normalizeString node:path:94:25
+
+ [C++]:
+   ticks  total  nonlib   name
+     24    7.6%    8.3%  epoll_pwait@@GLIBC_2.6
+     19    6.0%    6.6%  fwrite@@GLIBC_2.2.5
+     16    5.1%    5.5%  __write@@GLIBC_2.2.5
+      3    1.0%    1.0%  _IO_file_xsputn@@GLIBC_2.2.5
+      2    0.6%    0.7%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+      2    0.6%    0.7%  __popcountdi2@@GCC_3.4
+      1    0.3%    0.3%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      1    0.3%    0.3%  cfree@GLIBC_2.2.5
+      1    0.3%    0.3%  __pthread_mutex_unlock@GLIBC_2.2.5
+      1    0.3%    0.3%  __mprotect@@GLIBC_PRIVATE
+
+ [Summary]:
+   ticks  total  nonlib   name
+     18    5.7%    6.2%  JavaScript
+     70   22.2%   24.1%  C++
+     45   14.3%   15.5%  GC
+     25    7.9%          Shared libraries
+    202   64.1%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     18   50.0%    5.7%  fwrite@@GLIBC_2.2.5
+     11   30.6%    3.5%  __write@@GLIBC_2.2.5
+      2    5.6%    0.6%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+      2    5.6%    0.6%  _IO_file_xsputn@@GLIBC_2.2.5
+      1    2.8%    0.3%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      1    2.8%    0.3%  cfree@GLIBC_2.2.5
+      1    2.8%    0.3%  __pthread_mutex_unlock@GLIBC_2.2.5
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    202   64.1%  UNKNOWN
+     42   20.8%    JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+     39   92.9%      JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      4   10.3%        JS: ~<anonymous> node:http:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4  100.0%            JS: ~compileForPublicLoader node:internal/bootstrap/realm:331:25
+      4   10.3%        JS: ~<anonymous> node:crypto:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      3    7.7%        JS: ~<anonymous> node:tty:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ~compileForPublicLoader node:internal/bootstrap/realm:331:25
+      3    7.7%        JS: ~<anonymous> node:net:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      3    7.7%        JS: ~<anonymous> node:internal/streams/duplex:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      3    7.7%        JS: ~<anonymous> node:internal/fs/promises:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    5.1%        JS: ~<anonymous> node:internal/streams/operators:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    5.1%        JS: ~<anonymous> node:internal/fs/streams:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    5.1%        JS: ~<anonymous> node:internal/cluster/primary:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    5.1%        JS: ~<anonymous> node:internal/child_process:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~lazyLoadStreams node:fs:3092:25
+      1  100.0%          JS: ~get ReadStream node:fs:3239:17
+      1  100.0%            JS: ~<anonymous> /home/knovator/personal/testcases/node_modules/destroy/index.js:1:1
+      1    2.6%        JS: ~<anonymous> node:stream:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:internal/streams/pipeline:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:internal/readline/interface:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:internal/modules/esm/resolve:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:internal/crypto/pbkdf2:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:internal/crypto/hkdf:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:child_process:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:_http_common:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ~<anonymous> node:_http_client:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.6%        JS: ^resolveExports node:internal/modules/cjs/loader:628:24
+      1  100.0%          JS: ^Module._findPath node:internal/modules/cjs/loader:663:28
+      1  100.0%            JS: ~Module._resolveFilename node:internal/modules/cjs/loader:1126:35
+      3    7.1%      JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      3  100.0%        JS: ^loadBuiltinModule node:internal/modules/helpers:99:27
+      3  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:1003:24
+      3  100.0%            JS: ^Module.require node:internal/modules/cjs/loader:1281:36
+     38   18.8%    JS: ^wrapSafe node:internal/modules/cjs/loader:1422:18
+     38  100.0%      JS: ^Module._compile node:internal/modules/cjs/loader:1483:37
+     38  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1604:37
+     38  100.0%          JS: ^Module.load node:internal/modules/cjs/loader:1257:33
+     38  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:1003:24
+     19    9.4%    JS: *slowSum /home/knovator/personal/testcases/src/controllers/demoController.js:7:17
+     19  100.0%      JS: ~slowEndpoint /home/knovator/personal/testcases/src/controllers/demoController.js:24:22
+     19  100.0%        JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+     19  100.0%          JS: ~next /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:121:16
+     19  100.0%            JS: ~dispatch /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:101:45
+      4    2.0%    JS: ~wrapSafe node:internal/modules/cjs/loader:1422:18
+      4  100.0%      JS: ~Module._compile node:internal/modules/cjs/loader:1483:37
+      4  100.0%        JS: ~Module._extensions..js node:internal/modules/cjs/loader:1604:37
+      3   75.0%          JS: ~Module.load node:internal/modules/cjs/loader:1257:33
+      3  100.0%            JS: ~Module._load node:internal/modules/cjs/loader:1003:24
+      1   25.0%          JS: ^Module.load node:internal/modules/cjs/loader:1257:33
+      1  100.0%            JS: ~Module._load node:internal/modules/cjs/loader:1003:24
+      3    1.5%    JS: ~slowEndpoint /home/knovator/personal/testcases/src/controllers/demoController.js:24:22
+      3  100.0%      JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+      3  100.0%        JS: ~next /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:121:16
+      3  100.0%          JS: ~dispatch /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:101:45
+      3  100.0%            JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+      3    1.5%    JS: ^readFileSync node:fs:441:22
+      2   66.7%      JS: ^loadSource node:internal/modules/cjs/loader:1536:20
+      2  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1604:37
+      2  100.0%          JS: ^Module.load node:internal/modules/cjs/loader:1257:33
+      2  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:1003:24
+      1   33.3%      JS: ~Module._extensions..json node:internal/modules/cjs/loader:1631:39
+      1  100.0%        JS: ^Module.load node:internal/modules/cjs/loader:1257:33
+      1  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:1003:24
+      1  100.0%            JS: ^Module.require node:internal/modules/cjs/loader:1281:36
+      3    1.5%    JS: ^read node:internal/modules/package_json_reader:48:14
+      3  100.0%      JS: ^readPackage node:internal/modules/package_json_reader:140:21
+      2   66.7%        JS: ^resolveExports node:internal/modules/cjs/loader:628:24
+      2  100.0%          JS: ^Module._findPath node:internal/modules/cjs/loader:663:28
+      2  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:1126:35
+      1   33.3%        JS: ~resolveExports node:internal/modules/cjs/loader:628:24
+      1  100.0%          JS: ^Module._findPath node:internal/modules/cjs/loader:663:28
+      1  100.0%            JS: ~Module._resolveFilename node:internal/modules/cjs/loader:1126:35
+
+     24    7.6%  epoll_pwait@@GLIBC_2.6
+
+     24    7.6%  /usr/lib/x86_64-linux-gnu/libc.so.6
+      1    4.2%    JS: ~header /home/knovator/personal/testcases/node_modules/express/lib/response.js:777:29
+      1  100.0%      JS: ~send /home/knovator/personal/testcases/node_modules/express/lib/response.js:111:25
+      1  100.0%        JS: ~json /home/knovator/personal/testcases/node_modules/express/lib/response.js:250:25
+      1  100.0%          JS: ~fastEndpoint /home/knovator/personal/testcases/src/controllers/demoController.js:29:22
+      1  100.0%            JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+      1    4.2%    JS: ~SemVer /home/knovator/personal/testcases/node_modules/jsonwebtoken/node_modules/semver/classes/semver.js:10:15
+      1  100.0%      JS: ~parse /home/knovator/personal/testcases/node_modules/jsonwebtoken/node_modules/semver/classes/comparator.js:36:9
+      1  100.0%        JS: ~Comparator /home/knovator/personal/testcases/node_modules/jsonwebtoken/node_modules/semver/classes/comparator.js:10:15
+      1  100.0%          JS: ~<anonymous> /home/knovator/personal/testcases/node_modules/jsonwebtoken/node_modules/semver/ranges/subset.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1483:37
+      1    4.2%    JS: ~Readable.on node:internal/streams/readable:1127:33
+      1  100.0%      JS: ~connectionListenerInternal node:_http_server:653:36
+      1  100.0%        JS: ~defaultTriggerAsyncIdScope node:internal/async_hooks:455:36
+      1  100.0%          JS: ~connectionListener node:_http_server:647:28
+      1  100.0%            JS: ~onconnection node:net:2168:22
+
+     19    6.0%  fwrite@@GLIBC_2.2.5
+      2   10.5%    JS: ~toRealPath node:internal/modules/helpers:57:20
+      2  100.0%      JS: ~Module._findPath node:internal/modules/cjs/loader:663:28
+      2  100.0%        JS: ~resolveMainPath node:internal/modules/run_main:23:25
+      2  100.0%          JS: ~executeUserEntryPoint node:internal/modules/run_main:155:31
+      2  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      2   10.5%    JS: ~realpathSync node:fs:2664:22
+      2  100.0%      JS: ~toRealPath node:internal/modules/helpers:57:20
+      2  100.0%        JS: ~Module._findPath node:internal/modules/cjs/loader:663:28
+      2  100.0%          JS: ~resolveMainPath node:internal/modules/run_main:23:25
+      2  100.0%            JS: ~executeUserEntryPoint node:internal/modules/run_main:155:31
+      2   10.5%    JS: ~patchProcessObject node:internal/process/pre_execution:223:28
+      2  100.0%      JS: ~prepareExecution node:internal/process/pre_execution:96:26
+      2  100.0%        JS: ~prepareMainThreadExecution node:internal/process/pre_execution:52:36
+      2  100.0%          JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.3%    JS: ~write_ node:_http_outgoing:898:16
+      1  100.0%      JS: ~end node:_http_outgoing:1034:45
+      1  100.0%        JS: ~write /home/knovator/personal/testcases/node_modules/finalhandler/index.js:275:18
+      1  100.0%          JS: ~send /home/knovator/personal/testcases/node_modules/finalhandler/index.js:274:15
+      1  100.0%            JS: ~<anonymous> /home/knovator/personal/testcases/node_modules/finalhandler/index.js:86:19
+      1    5.3%    JS: ~shouldUseESMLoader node:internal/modules/run_main:59:28
+      1  100.0%      JS: ~executeUserEntryPoint node:internal/modules/run_main:155:31
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.3%    JS: ~setupListenHandle node:net:1856:27
+      1  100.0%      JS: ~listenInCluster node:net:1955:25
+      1  100.0%        JS: ~Server.listen node:net:2006:35
+      1  100.0%          JS: ~listen /home/knovator/personal/testcases/node_modules/express/lib/application.js:633:29
+      1  100.0%            JS: ~<anonymous> /home/knovator/personal/testcases/src/server.js:1:1
+      1    5.3%    JS: ~setupConnectionsTracking node:_http_server:502:34
+      1  100.0%      JS: ~emitListeningNT node:net:1948:25
+      1  100.0%        JS: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    5.3%    JS: ~prepareExecution node:internal/process/pre_execution:96:26
+      1  100.0%      JS: ~prepareMainThreadExecution node:internal/process/pre_execution:52:36
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.3%    JS: ~initializeCJSLoader node:internal/process/pre_execution:696:29
+      1  100.0%      JS: ~setupUserModules node:internal/process/pre_execution:190:26
+      1  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:96:26
+      1  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:52:36
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.3%    JS: ~handle /home/knovator/personal/testcases/node_modules/express/lib/application.js:165:29
+      1  100.0%      JS: ~app /home/knovator/personal/testcases/node_modules/express/lib/express.js:38:21
+      1  100.0%        JS: ~parserOnIncoming node:_http_server:1026:26
+      1  100.0%          JS: ~parserOnHeadersComplete node:_http_common:71:33
+      1    5.3%    JS: ~fastparse /home/knovator/personal/testcases/node_modules/parseurl/index.js:95:20
+      1  100.0%      JS: ~parseurl /home/knovator/personal/testcases/node_modules/parseurl/index.js:35:19
+      1  100.0%        JS: ~getPathname /home/knovator/personal/testcases/node_modules/express/lib/router/index.js:537:21
+      1  100.0%          JS: ~next /home/knovator/personal/testcases/node_modules/express/lib/router/index.js:177:16
+      1  100.0%            JS: ~handle /home/knovator/personal/testcases/node_modules/express/lib/router/index.js:136:31
+      1    5.3%    JS: ~clearTimeout node:timers:184:22
+      1  100.0%      JS: ~Socket._destroy node:net:800:37
+      1  100.0%        JS: ~_destroy node:internal/streams/destroy:89:18
+      1  100.0%          JS: ~destroy node:internal/streams/destroy:48:17
+      1  100.0%            JS: ~Writable.destroy node:internal/streams/writable:1114:38
+      1    5.3%    JS: ~assertEncoding node:internal/fs/utils:155:24
+      1  100.0%      JS: ~getOptions node:internal/fs/utils:321:20
+      1  100.0%        JS: ~readFileSync node:fs:441:22
+      1  100.0%          JS: ~loadSource node:internal/modules/cjs/loader:1536:20
+      1  100.0%            JS: ~Module._extensions..js node:internal/modules/cjs/loader:1604:37
+      1    5.3%    JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.3%    JS: ~<anonymous> node:internal/abort_controller:1:1
+      1  100.0%      JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%        JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1  100.0%          JS: ~<anonymous> node:internal/streams/operators:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+
+     16    5.1%  __write@@GLIBC_2.2.5
+      1    6.3%    JS: ~wrapfunction /home/knovator/personal/testcases/node_modules/depd/index.js:413:23
+      1  100.0%      JS: ~<anonymous> /home/knovator/personal/testcases/node_modules/express/lib/utils.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1483:37
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1604:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1257:33
+      1    6.3%    JS: ~send /home/knovator/personal/testcases/node_modules/express/lib/response.js:111:25
+      1  100.0%      JS: ~json /home/knovator/personal/testcases/node_modules/express/lib/response.js:250:25
+      1  100.0%        JS: ~fastEndpoint /home/knovator/personal/testcases/src/controllers/demoController.js:29:22
+      1  100.0%          JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            JS: ~next /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:121:16
+      1    6.3%    JS: ~resolve node:path:1217:10
+      1  100.0%      JS: ~Module._findPath node:internal/modules/cjs/loader:663:28
+      1  100.0%        JS: ~resolveMainPath node:internal/modules/run_main:23:25
+      1  100.0%          JS: ~executeUserEntryPoint node:internal/modules/run_main:155:31
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    6.3%    JS: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    6.3%    JS: ~parse /home/knovator/personal/testcases/node_modules/media-typer/index.js:139:15
+      1  100.0%      JS: ~normalizeType /home/knovator/personal/testcases/node_modules/type-is/index.js:237:24
+      1  100.0%        JS: ~tryNormalizeType /home/knovator/personal/testcases/node_modules/type-is/index.js:256:27
+      1  100.0%          JS: ~typeis /home/knovator/personal/testcases/node_modules/type-is/index.js:43:17
+      1  100.0%            JS: ~typeofrequest /home/knovator/personal/testcases/node_modules/type-is/index.js:123:24
+      1    6.3%    JS: ~listen /home/knovator/personal/testcases/node_modules/express/lib/application.js:633:29
+      1  100.0%      JS: ~<anonymous> /home/knovator/personal/testcases/src/server.js:1:1
+      1  100.0%        JS: ~Module._compile node:internal/modules/cjs/loader:1483:37
+      1  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1604:37
+      1  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1257:33
+      1    6.3%    JS: ~listOnTimeout node:internal/timers:524:25
+      1  100.0%      JS: ^processTimers node:internal/timers:504:25
+      1    6.3%    JS: ~freeParser node:_http_common:181:20
+      1  100.0%      JS: ~socketOnClose node:_http_server:787:23
+      1  100.0%        JS: ~<anonymous> node:net:341:24
+      1    6.3%    JS: ~createMessageToStatusCodeMap /home/knovator/personal/testcases/node_modules/statuses/index.js:63:39
+      1  100.0%      JS: ~<anonymous> /home/knovator/personal/testcases/node_modules/statuses/index.js:1:1
+      1  100.0%        JS: ~Module._compile node:internal/modules/cjs/loader:1483:37
+      1  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1604:37
+      1  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1257:33
+      1    6.3%    JS: ~_write node:internal/streams/writable:453:16
+      1  100.0%      JS: ^Writable.write node:internal/streams/writable:504:36
+      1  100.0%        JS: ~value node:internal/console/constructor:275:20
+      1  100.0%          JS: ~log node:internal/console/constructor:377:6
+      1  100.0%            JS: ~<anonymous> /home/knovator/personal/testcases/src/app.js:11:20
+      1    6.3%    JS: ~Module._findPath node:internal/modules/cjs/loader:663:28
+      1  100.0%      JS: ~Module._resolveFilename node:internal/modules/cjs/loader:1126:35
+      1  100.0%        JS: ~Module._load node:internal/modules/cjs/loader:1003:24
+      1  100.0%          JS: ~Module.require node:internal/modules/cjs/loader:1281:36
+      1  100.0%            JS: ~require node:internal/modules/helpers:180:31
+
+     11    3.5%  JS: *slowSum /home/knovator/personal/testcases/src/controllers/demoController.js:7:17
+     11  100.0%    JS: ~slowEndpoint /home/knovator/personal/testcases/src/controllers/demoController.js:24:22
+     11  100.0%      JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+     11  100.0%        JS: ~next /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:121:16
+     11  100.0%          JS: ~dispatch /home/knovator/personal/testcases/node_modules/express/lib/router/route.js:101:45
+     11  100.0%            JS: ^handle /home/knovator/personal/testcases/node_modules/express/lib/router/layer.js:86:49
+
